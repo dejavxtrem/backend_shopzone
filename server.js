@@ -5,6 +5,7 @@ import morgan  from 'morgan'
 import mongoose from 'mongoose'
 import colors from 'colors';
 import productRouter from './routes/productRoutes.js'
+import userAuthRouter from './routes/userRoutes.js'
 import { notFoundHandler, errorHandler } from './middleware/errorMiddleware.js'
 
 
@@ -21,7 +22,9 @@ const mongoURI = process.env.MONGODB_URI
 //middleware
 app.use(cors());
 app.use(morgan("tiny"))
+app.use(express.json())
 app.use('/api/products', productRouter)
+app.use('/api/users', userAuthRouter)
 
 
 app.use(notFoundHandler)

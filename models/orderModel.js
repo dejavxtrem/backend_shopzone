@@ -32,10 +32,15 @@ const orderSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+
     paymentResult: {
-        type: String,
-        required: true,
+        id: { type: String },
+      status: { type: String },
+      update_time: { type: String },
+      email_address: { type: String },
     },
+
+
     paymentMethod: {
         id: {type: String},
         status: {type: String},

@@ -6,6 +6,7 @@ import mongoose from 'mongoose'
 import colors from 'colors';
 import productRouter from './routes/productRoutes.js'
 import userAuthRouter from './routes/userRoutes.js'
+import orderRouter from './routes/orderRoutes.js'
 import { notFoundHandler, errorHandler } from './middleware/errorMiddleware.js'
 
 
@@ -25,6 +26,8 @@ app.use(morgan("tiny"))
 app.use(express.json())
 app.use('/api/products', productRouter)
 app.use('/api/users', userAuthRouter)
+app.use('/api/orders', orderRouter)
+
 
 
 app.use(notFoundHandler)

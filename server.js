@@ -28,6 +28,9 @@ app.use('/api/products', productRouter)
 app.use('/api/users', userAuthRouter)
 app.use('/api/orders', orderRouter)
 
+//ROUTE to get paypal client id
+app.get('/api/config/paypal', (req, res) =>  res.send(process.env.PAYPAL_CLIENT_ID))
+
 
 
 app.use(notFoundHandler)

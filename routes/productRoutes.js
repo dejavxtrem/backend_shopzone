@@ -5,7 +5,9 @@ import { getProductById,
     deleteProductById, 
     createProduct, 
     updateProduct, 
-    createProductReview} from '../controllers/productController.js'
+    createProductReview,
+    getTopProducts
+} from '../controllers/productController.js'
 
 
 const productRouter = express.Router()
@@ -13,6 +15,8 @@ const productRouter = express.Router()
 
 //using router method
 productRouter.route('/').get(getProducts) 
+
+productRouter.get('/top', getTopProducts)
 
 //route to backend for one product by id
 productRouter.route('/:id').get(getProductById)
